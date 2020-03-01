@@ -1,0 +1,99 @@
+
+.header
+  background-color var(--background-boxs)
+  box-shadow 1px 1px 4px 0 rgba(0,0,0,.5)
+  position fixed
+  width 100%
+  z-index 3
+  ul
+    margin 0
+    padding 0
+    list-style none
+    overflow hidden
+    background-color var(--background-boxs);
+  li
+    a
+      display block
+      padding 20px 20px
+      border-right 1px solid var(--background-boxs-accent);
+      text-decoration none
+      display flex
+      align-items center
+      svg 
+        margin-right: 3px
+  .logo
+    display block
+    float left
+    font-size 1.8em
+    padding 10px 20px
+    text-decoration none
+    font-family Acme
+    display flex 
+    align-items: center;
+    
+  .menu
+    clear both
+    max-height 0
+    transition max-height .2s ease-out
+  .menu-icon
+    cursor pointer
+    display inline-block
+    float right
+    padding 28px 20px
+    position relative
+    user-select none
+    .navicon
+      background var(--text);
+      display block
+      height 2px
+      position relative
+      transition background .2s ease-out
+      width 18px
+      &:before
+        top 5px
+      &:after
+        top -5px
+  .menu-btn
+    display none
+    &:checked
+      & ~ .menu
+        max-height 240px
+      & ~ .menu-icon
+        .navicon
+          background transparent
+          &:before
+            transform rotate(-45deg)
+          &:after
+            transform rotate(45deg)
+
+.header li a:hover,
+.header .menu-btn:hover
+  background-color: var(--primary-color);
+  color: var(--primary-color-text);
+
+.header .menu-icon .navicon:before,
+.header .menu-icon .navicon:after
+  background var(--text);
+  content ''
+  display block
+  height 100%
+  position absolute
+  transition all .2s ease-out
+  width 100%
+
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after
+  top 0
+
+@media (min-width: 48em)
+  .header
+    li
+      float left
+      a
+        padding 20px 30px
+    .menu
+      clear none
+      float right
+      max-height none
+    .menu-icon
+      display none
