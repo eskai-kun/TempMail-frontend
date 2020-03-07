@@ -1,0 +1,38 @@
+.Mail
+    display: flex
+    justify-content: space-around
+    text-align: left
+    height 50px
+    align-items: center
+    overflow hidden
+    animation: newLoadingMail 1s
+    cursor pointer
+    transition: .5s
+    & > *
+        width: 33%
+        overflow: hidden
+        & span
+            overflow: hidden;
+            white-space: nowrap;
+            display: inline-block;
+            width: 95%;
+            margin-left: 5px;
+            text-overflow: ellipsis;
+        &.from, &.received_at
+            font-style: italic
+            font-size: 14px
+    &:nth-child(even)
+        background: var(--background-boxs-accent)
+    &:nth-child(odd)
+        background: var(--background-boxs)
+    &:hover
+        background: var(--primary-color)
+
+@keyframes newLoadingMail{
+    from{
+        height:0
+    }
+    to{
+        height: 50px
+    }
+}

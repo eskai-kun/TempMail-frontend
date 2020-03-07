@@ -1,0 +1,37 @@
+.Mails-container
+    background: var(--background-boxs)
+    margin-top: 40px
+    border-radius: 4px
+    overflow hidden
+    & .refresh-email
+        background: var(--background-boxs-border)
+        height: 5px
+        & .loading
+            height: inherit
+            background: var(--background-boxs-accent)
+            animation: refresh_loading 10s linear infinite
+    & .description-top
+        display: flex
+        justify-content: space-around
+        font-family: 'Acme'
+        background: var(--primary-color)
+        color: var(--primary-color-text)
+        padding: 8px 0
+        font-size: 17px
+        & span 
+            display: block
+            width: 100%
+            padding-left: 15px
+
+
+@keyframes refresh_loading{
+    0%{
+        width: 0%
+    }
+    90%{
+        width: 100%
+    }
+    100%{
+        width: 0%
+        }
+}
